@@ -4,20 +4,16 @@
     <div class="container">
        
         <div class="sap_tabs">
-            <div class="row" ng-repeat="item in articles">
+            <div class="row" style="padding:2%" ng-repeat="item in articles">
                 <div class="col-sm-4 men-wear-left">
 
-                    <img class="img-responsive" src="images/men31.jpg" alt=" ">
+                    <img class="img-responsive"ng-src="{{item.ImageUrl}}" alt=" ">
                 </div>
                 <div class="col-sm-8 men-wear-right">
                     <h4>Exclusive Women's Collections</h4>
                     <p>
-                      
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-                        ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                        odit aut fugit.
+
+                        {{item.Abstract}}
                     </p>
                 </div>
             </div>

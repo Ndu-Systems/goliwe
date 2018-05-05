@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2018 at 05:41 PM
+-- Generation Time: May 05, 2018 at 08:43 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -48,7 +48,8 @@ CREATE TABLE `article` (
 INSERT INTO `article` (`ArticleId`, `ISSN`, `Price`, `Title`, `PublisherID`, `PlublishDate`, `ImageUrl`, `Abstract`, `FileUrl`, `Status`) VALUES
 (1, '77', '40', 'United Nations Convention on the Law of the Sea', 1, '2018-05-05 17:10:37', 'http://localhost:8080/git.goliwe/api/uploads/1525533037.jpg', 'The criminal jurisdiction of the coastal State should not be exercised\non board a foreign ship passing through the territorial sea to arrest any person\nor to conduct any investigation in connection with any crime committed on\nboard the ship during its passage, save only in the following cases:', 'http://localhost:8080/git.goliwe/api/uploads/1525533037.pdf', 'Active'),
 (2, '0', '40', 'Eloquent JavaScript', 1, '2018-05-05 17:23:45', 'http://localhost:8080/git.goliwe/api/uploads/1525533825.png', 'This work is licensed under a Creative Commons attribution-noncommercial\nlicense (http://creativecommons.org/licenses/by-nc/3.0/). All code in the\nbook may also be consi', 'http://localhost:8080/git.goliwe/api/uploads/1525533825.pdf', 'Active'),
-(3, 'saw15', '40', 'Eloquent JavaScript', 1, '2018-05-05 17:30:25', 'http://localhost:8080/git.goliwe/api/uploads/1525534225.png', 'This work is licensed under a Creative Commons attribution-noncommercial\nlicense (http://creativecommons.org/licenses/by-nc/3.0/). All code in the\nbook may also be consi', 'http://localhost:8080/git.goliwe/api/uploads/1525534225.pdf', 'Active');
+(3, 'saw15', '40', 'Eloquent JavaScript', 1, '2018-05-05 17:30:25', 'http://localhost:8080/git.goliwe/api/uploads/1525534225.png', 'This work is licensed under a Creative Commons attribution-noncommercial\nlicense (http://creativecommons.org/licenses/by-nc/3.0/). All code in the\nbook may also be consi', 'http://localhost:8080/git.goliwe/api/uploads/1525534225.pdf', 'Active'),
+(4, 'r54', '40', 'Angular', 1, '2018-05-05 17:48:01', 'http://localhost:8080/git.goliwe/api/uploads/1525535281.png', 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop. Speed & Performance. Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side', 'http://localhost:8080/git.goliwe/api/uploads/1525535281.pdf', 'Active');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
