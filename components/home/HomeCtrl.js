@@ -1,0 +1,1 @@
+app.controller("HomeCtrl", function ($http, $scope, $window, $timeout, $location) { })
