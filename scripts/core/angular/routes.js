@@ -11,5 +11,9 @@
         .when("/User-Login", {
             templateUrl: 'components/login/login.html',
             controller: 'LoginCtrl'
-        })       
+        })  
+        .when("/New-Article", {
+            templateUrl: 'components/admin/article/addarticle.html',
+            controller: 'addarticleCtrl'
+        })      
 }); 
