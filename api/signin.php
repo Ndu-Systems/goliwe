@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require "conn.php";
 $data = json_decode(file_get_contents("php://input"));
 
-  $Email= $data->Email;
+  $Email= $data->Email; 
   $Password = $data->Password;
 
   $result = $conn->prepare("SELECT * FROM users WHERE Email = ?");
