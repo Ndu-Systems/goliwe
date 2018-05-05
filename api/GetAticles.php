@@ -19,6 +19,8 @@ while($row=$result->fetch(PDO::FETCH_OBJ)) {
     $data->PlublishDate = $row->PlublishDate;
     $data->Abstract = $row->Abstract;
     $data->FileUrl = $row->FileUrl;
+	$data->Status = $row->Status;
+		$data->ImageUrl = $row->ImageUrl;
 	$rows['data'][] = $data;
 	}
 }
@@ -32,5 +34,7 @@ class Article{
     public $PlublishDate;
     public $Abstract;
     public $FileUrl;
+	public $Status;
+	public $ImageUrl;
 }
 ?>

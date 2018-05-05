@@ -1,5 +1,6 @@
 
-app.controller("addarticleCtrl", function ( $scope, $http,uploadServcie,uploadServcie2,addArticleService) {
+app.controller("addarticleCtrl", function ($scope, $http, uploadServcie, uploadServcie2, addArticleService) {
+    $scope.Price = 40;
     $scope.filesChangedCover = function (eml) {
         $scope.coverfiles = eml.files;
         $scope.cover_name = $scope.coverfiles[0].name;
@@ -11,7 +12,32 @@ app.controller("addarticleCtrl", function ( $scope, $http,uploadServcie,uploadSe
         $scope.$apply();
     };
     $scope.Submit = function () {
+        if (!$scope.ISSN) {
+            $scope.message = "Please Enter ISSN";
+            return false;
+        }
+        if (!$scope.Price) {
+            $scope.message = "Please Enter Price";
+            return false;
+        }
+        if (!$scope.Title) {
+            $scope.message = "Please Enter Title";
+            return false;
+        }
+        if (!$scope.Abstract) {
+            $scope.message = "Please Enter Abstract";
+            return false;
+        }
+        if (!$scope.cover_name) {
+            $scope.message = "Please Upload Cover Image";
+            return false;
+        }
+        if (!$scope.filename) {
+            $scope.message = "Please Upload Article File(PDF)";
+            return false;
+        }
 
+        $scope.message = undefined;
        uploadServcie.UploadFiles(
         $scope.cover_name,
         $scope.coverfiles,
@@ -25,6 +51,7 @@ app.controller("addarticleCtrl", function ( $scope, $http,uploadServcie,uploadSe
              function(response){
              $scope.articleURL = response;
              // now push to db
+           
              var data = {
                 issn  			   : $scope.ISSN,
                 Price              : $scope.Price,
@@ -37,8 +64,13 @@ app.controller("addarticleCtrl", function ( $scope, $http,uploadServcie,uploadSe
 
              addArticleService.AddAticle(
                  data,
-                 function(response){
-                     alert(response);
+                 function (response) {
+                     if (parseInt(response) == 1) {
+                         alert("Article Uploaded");
+                     } else {
+                         $scope.message = response;
+                     }
+                    
                  }
              );
 
