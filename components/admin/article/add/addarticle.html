@@ -8,7 +8,6 @@
 	<div class="contact">
 		<div class="container">
 			
-			<h3 class="tittle">Add New Article {{Abstract}}</h3>
 			<div>
 				<div class="contact-form2">
 				<div style="margin-bottom: 2%">
@@ -29,16 +28,15 @@
 				<div style="margin-bottom: 2%">
 						Upload Cover Image: <br>
 						<input type="file" value="Price" ng-model="Price"  required=""  onchange="angular.element(this).scope().filesChangedCover(this)"> <br>
-						Upload Cover File: <br>: <br>
+						Upload Article File(PDF): <br> <br>
 					<input type="file" value="Email"  ng-model="Title" required=""  onchange="angular.element(this).scope().filesChangedFile(this)">
 				</div>
 					<input type="submit" ng-click="Submit()" value="Submit" > 
 					<h3>
-						{{message}} {{coverURL}} {{articleURL}}
+						{{message}} 
 					</h3>
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+

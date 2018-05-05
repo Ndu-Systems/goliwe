@@ -75,19 +75,17 @@ app.service('addArticleService', function($http){
 });
 
 
-app.service('GetArticles', function($http){
-    this.AddAticle = function(articleObj, callback) {
-        if(articleObj){
-            $http.post(GetApiUrl("GetAticles"), articleObj) 
+app.service('GetArticlesService', function($http){
+    this.GetArticles = function(callback) {
+       
+        $http.post(GetApiUrl("GetAticles"), {}) 
                 .then(function (resp) {
                     if(resp.data){
                         callback(resp.data);
                     }
                  
                 })
-        }else{
-            return false;
-        }
+       
     }
 
 });

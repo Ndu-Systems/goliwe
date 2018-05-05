@@ -13,7 +13,11 @@
             controller: 'LoginCtrl'
         })  
         .when("/New-Article", {
-            templateUrl: 'components/admin/article/addarticle.html',
+            templateUrl: 'components/admin/article/add/addarticle.html',
             controller: 'addarticleCtrl'
         })      
+        .when("/View-Articles", {
+            templateUrl: 'components/admin/article/view/articles.html',
+            controller: 'viewArticleCtrl'
+        })   
 }); 
