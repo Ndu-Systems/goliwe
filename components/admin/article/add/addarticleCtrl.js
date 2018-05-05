@@ -1,6 +1,7 @@
 
 app.controller("addarticleCtrl", function ($scope, $http, uploadServcie, uploadServcie2, addArticleService) {
     let user = JSON.parse(localStorage.getItem('User'));
+    if (user) {
     $scope.Username = user.FirstName;
     $scope.Price = 40;
     $scope.filesChangedCover = function (eml) {
@@ -77,5 +78,10 @@ app.controller("addarticleCtrl", function ($scope, $http, uploadServcie, uploadS
              );
 
          });
+    }
+        } else {
+        localStorage.clear();
+        $location.path('/User-Login');
+
     }
 }) 
