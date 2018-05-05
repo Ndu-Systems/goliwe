@@ -5,7 +5,7 @@ app.controller("viewArticleCtrl", function ($scope, $http, GetArticlesService) {
     GetArticlesService.GetArticles(
         function (response) {
             $scope.articles = response.data;
-            if ($scope.articles.length) {
+            if (!$scope.articles) {
                 $scope.message = 'No articles found!'
             }
         }
