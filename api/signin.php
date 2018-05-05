@@ -7,6 +7,7 @@ $data = json_decode(file_get_contents("php://input"));
 
   $Email= $data->Email; 
   $Password = $data->Password;
+  $rows = array();
 
   $result = $conn->prepare("SELECT * FROM users WHERE Email = ?");
   $result->execute(array($Email));
@@ -16,7 +17,8 @@ $data = json_decode(file_get_contents("php://input"));
   {
 	if(password_verify($Password, $user['Password']))
 	{
-		echo 1;
+		$rows["users"][] = $user;
+		echo json_encode($rows);
 	}
 	else
 	{

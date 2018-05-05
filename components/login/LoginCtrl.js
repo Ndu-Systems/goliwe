@@ -97,9 +97,20 @@ app.controller("LoginCtrl", function ($http, $scope, $window, $timeout, $locatio
             $http.post(GetApiUrl("signin"), data)
                 .then(function (response, status)
                 {
-                    if (parseInt(response.data) === 1)
+                    if (response.length != 0)
                     {
-                        alert("User Logs In!")
+                        let user = response.data.users[0];
+                        localStorage.setItem("User", JSON.stringify(user));
+                        //alert("User Logs In!")
+                        if (user.Role === "Admin") {
+                            $location.path('/admin-dashboard');
+                        }
+                        else if (user.Role === "Customer") {
+                            $location.path('/customer-dashboard');
+                        }
+                        else {
+                            $location.path('/')
+                        }
                     }
                     else {
                         $scope.message = "Invalid Email / Password Provided";

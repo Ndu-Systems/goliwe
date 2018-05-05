@@ -11,9 +11,21 @@
         .when("/User-Login", {
             templateUrl: 'components/login/login.html',
             controller: 'LoginCtrl'
-        })  
+        }) 
+        .when("/Logout", {
+            templateUrl: 'components/logout/logout.html',
+            controller: 'LogoutCtrl'
+        })
         .when("/New-Article", {
             templateUrl: 'components/admin/article/addarticle.html',
             controller: 'addarticleCtrl'
-        })      
+        })
+        .when("/customer-dashboard", {
+            templateUrl: 'components/customer/customer-dashboard.html',
+            controller: 'CustomerDashboardCtrl'
+        })
+        .when("/admin-dashboard", {
+            templateUrl: 'components/admin/admin-dashboard.html',
+            controller: 'AdminDashboardCtrl'
+        })
 }); 
