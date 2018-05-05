@@ -24,7 +24,7 @@
             templateUrl: 'components/admin/article/view/articles.html',
             controller: 'viewArticleCtrl'
         })   
-        })
+       
         .when("/customer-dashboard", {
             templateUrl: 'components/customer/customer-dashboard.html',
             controller: 'CustomerDashboardCtrl'
