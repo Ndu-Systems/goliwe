@@ -1,19 +1,10 @@
-var extention = ".php/";
-var host = "https://www.funderslife.com/api/";
-var base = "https://www.funderslife.com/#!/Get-Started";
+var extention = ".php/"; 
 
 var isLocal = true;
 
-if(isLocal){
-    base = "http://localhost:55116/index.html#!/Get-Started";
-    host = "http://localhost:8080/goliwe/api/";
-//base = "http://localhost/worldwidecash/fundersLife/Get-Started";//freedom
-//host = "http://localhost/worldwidecash/fundersLife/api/"; //Freedom
-} 
-
-var mail = "https://www.funderslife.com/api/emailClient2.php";
-var penultAmount = '400';
-
+if(isLocal){ 
+    host = "http://localhost:8080/git.goliwe/api/"; 
+}  
 function GetApiUrl(serviceName) {
 
     var url = host + serviceName + extention;
