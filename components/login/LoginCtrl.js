@@ -97,7 +97,7 @@ app.controller("LoginCtrl", function ($http, $scope, $window, $timeout, $locatio
             $http.post(GetApiUrl("signin"), data)
                 .then(function (response, status)
                 {
-                    if (response.length != 0)
+                    if (response.data.length != 0)
                     {
                         let user = response.data.users[0];
                         localStorage.setItem("User", JSON.stringify(user));
