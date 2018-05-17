@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeNavComponent implements OnInit {
 
   constructor() { }
-
+  collapsed = true;
+     toggleCollapsed(): void {
+       this.collapsed = !this.collapsed;
+     }
   ngOnInit() {
   }
 

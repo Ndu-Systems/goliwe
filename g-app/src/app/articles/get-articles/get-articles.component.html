@@ -1,0 +1,31 @@
+         <h1>{{message}}</h1>
+         <table class="table table-responsive">             
+            <tbody *ngIf="(articles) as listOfArticles">              
+              <tr  *ngFor="let item of listOfArticles">                
+                <td class="men-pro-item simpleCart_shelfItem">          
+                    <div class="men-thumb-item">
+                        <img src="{{item.ImageUrl}}" width="250"alt="" class="pro-image-front">
+                        <img src="{{item.ImageUrl}}" width="250"alt="" class="pro-image-back">
+                        <div class="men-cart-pro">
+                            <div class="inner-men-cart-pro">
+                                <a href="" class="link-product-add-cart">Hot Read</a>
+                            </div>
+                        </div>
+                        <span class="product-new-top">New</span>
+                    </div>
+                    <div class="item-info-product ">
+                        <h4><a href="">{{item.Title}} </a></h4>
+                        <div class="info-product-price">
+                            <span class="item_price">$ {{item.Price}} </span>
+                        </div>                      
+                    </div>          
+                <td>
+                    <h4>Top Reads</h4>               
+                    <blockquote class="blockquote text-right">
+                      <p class="mb-0">{{item.Abstract}}</p>
+                      <footer class="blockquote-footer"><cite title="Source Title">Source Title: {{item.Title}}</cite></footer>
+                    </blockquote>  
+                </td>              
+              </tr>
+            </tbody>
+          </table>
