@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <app-home-nav></app-home-nav>
+  <div class="product-easy">
+  <div class="container" *ngIf="article as article"> 
+      <div class="row col-md-12">           
+            <div class="col-md-6">
+                    <img src="{{article.ImageUrl}}" alt="..." style="width:350px; height:450px;" class="img-thumbnail">
+             </div>
+            <div class="col-md-6 ">
+                    <div class="row">
+                        <div class="col-md-12">
+                             <h3>{{article.Title}}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12 bottom-rule">
+                                    <h2 class="product-price">${{article.Price}}</h2>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" (click)="topPaid()"><span style="margin-right:20px"  class="fa fa-shopping-basket" aria-hidden="true"></span> Continue Shopping</button>
+                            </div>
+                        <div class="col-md-6">
+                                <button type="button" class="btn btn-success"><span style="margin-right:20px"  class="fa fa-shopping-cart" aria-hidden="true"></span> Check-Out</button>
+                        </div>
+                    </div>
+                   
+ 
+            </div>
+      </div>
+      <div class="row">
+          <br/>
+            <div class="col-xs-9">                   
+                    <div style="width:100%;border-top:1px solid silver">
+                        <p style="padding:15px;">
+                            <small>
+                           {{article.Abstract}}
+                            </small>
+                        </p>                         
+                    </div>
+                </div>	
+      </div>
+     
+   </div>
+</div>
+</div>

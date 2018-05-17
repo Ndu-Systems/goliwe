@@ -1,5 +1,6 @@
 import { GetArticlesService } from './../get-articles/get-articles.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-paid-articles',
@@ -11,8 +12,9 @@ export class TopPaidArticlesComponent implements OnInit {
   articles = []
   message: any
   constructor(
-    private GetArticlesService: GetArticlesService
-  ) { }
+    private GetArticlesService: GetArticlesService,
+    private router: Router
+  ) { }  
 
   ngOnInit() {
       this.GetArticlesService.getAllArticles().subscribe(response =>{
@@ -23,6 +25,10 @@ export class TopPaidArticlesComponent implements OnInit {
           this.message = response;
         }
       });
+  }
+
+  SelectedArticle(item){
+    this.router.navigate(['/Article',  item.ArticleId ]);
   }
 
 }
