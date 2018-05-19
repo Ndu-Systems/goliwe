@@ -3,10 +3,14 @@
   <div class="product-easy">
   <div class="container" *ngIf="article as article"> 
       <div class="row col-md-12">           
+            <div class="col-md-3">
+                    <img src="{{article.ImageUrl}}" alt="..." style="width:250px; height:350px;" class="img-thumbnail">
+                    <hr/>
+                    <div class="">
+                        <button type="button" class="btn btn-primary" (click)="topPaid()"><span style="margin-right:20px"  class="fa fa-shopping-basket" aria-hidden="true"></span> Continue Shopping</button>
+                   </div>
+            </div>
             <div class="col-md-6">
-                    <img src="{{article.ImageUrl}}" alt="..." style="width:350px; height:450px;" class="img-thumbnail">
-             </div>
-            <div class="col-md-6 ">
                     <div class="row">
                         <div class="col-md-12">
                              <h3>{{article.Title}}</h3>
@@ -17,27 +21,31 @@
                                     <h2 class="product-price">${{article.Price}}</h2>
                             </div>
                     </div>
-                    <div class="row">
-                            <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary" (click)="topPaid()"><span style="margin-right:20px"  class="fa fa-shopping-basket" aria-hidden="true"></span> Continue Shopping</button>
-                            </div>
+                    <div class="row">                           
                         <div class="col-md-6">
-                                <button type="button" class="btn btn-success"><span style="margin-right:20px"  class="fa fa-shopping-cart" aria-hidden="true"></span> Check-Out</button>
+                            <button type="button" class="btn btn-success" 
+                            (click)="addArticleToCart(article, 1)"><span style="margin-right:20px"  class="fa fa-plus" aria-hidden="true"></span> Add To Cart</button>
                         </div>
-                    </div>
-                   
- 
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-danger"
+                            *ngIf="articleInCart(article) | async"
+                            (click)="removeArticleFromCart(article, 1)"><span style="margin-right:20px"  class="fa fa-trash" aria-hidden="true"></span> Remove From Cart</button>
+                        </div>
+                    </div>                
+             </div>
+            <div class="col-md-3">
+                    <app-shopping-cart></app-shopping-cart>
             </div>
       </div>
       <div class="row">
           <br/>
             <div class="col-xs-9">                   
                     <div style="width:100%;border-top:1px solid silver">
-                        <p style="padding:15px;">
-                            <small>
+                     
+                            <h3 style="padding:15px;">
                            {{article.Abstract}}
-                            </small>
-                        </p>                         
+                            </h3>
+                                            
                     </div>
                 </div>	
       </div>

@@ -1,3 +1,5 @@
+import { CachingService } from './shared/caching.service';
+import { ShoppingCartService } from './shopping-cart/shopping-cart.service';
 import { ViewArticleComponent } from './articles/view-article/view-article.component';
 import { GetArticlesService } from './articles/get-articles/get-articles.service';
 import { GetArticlesComponent } from './articles/get-articles/get-articles.component';
@@ -12,6 +14,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopPaidArticlesComponent } from 'src/app/articles/top-paid-articles/top-paid-articles.component';
 import { ViewArticleService } from 'src/app/articles/view-article/view-article.service';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { LocalStorageServie, StorageService } from 'src/app/shared/Storage.service';
  
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -25,7 +29,8 @@ const appRoutes = [
     HomeNavComponent,
     GetArticlesComponent,
     TopPaidArticlesComponent,
-    ViewArticleComponent
+    ViewArticleComponent,
+    ShoppingCartComponent
 ],
   imports: [
     BrowserModule,
@@ -35,7 +40,14 @@ const appRoutes = [
   ],
   providers: [
     GetArticlesService,
-    ViewArticleService
+    ViewArticleService,
+    LocalStorageServie,
+    {provide: StorageService, useClass: LocalStorageServie},
+    {
+      deps: [StorageService, GetArticlesService],
+      provide: ShoppingCartService,
+      useClass: ShoppingCartService
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,12 @@
+import { GetArticlesService } from './../get-articles/get-articles.service';
+ 
+import { Observable } from 'rxjs/Observable';
+import { Observer } from "rxjs/Observer";
 import { ViewArticleService } from 'src/app/articles/view-article/view-article.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import { Article } from 'src/app/models/Article';
+import { ShoppingCartService } from 'src/app/shopping-cart/shopping-cart.service';
 @Component({
   selector: 'app-view-article',
   templateUrl: './view-article.component.html',
@@ -8,15 +14,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class ViewArticleComponent implements OnInit {
 
-
   ArticleId : number;
   article: any;
-  message :any;
+  message :any; 
+  public articles : Observable<Article[]>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private articleService: ViewArticleService
+    private articleService: ViewArticleService,
+    private getAritclesService: GetArticlesService,
+    private shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit() {
@@ -37,4 +45,24 @@ export class ViewArticleComponent implements OnInit {
   topPaid(){
     this.router.navigate(['/Top-Paid']);
   }
+
+  public addArticleToCart(article: Article){
+      this.shoppingCartService.addItem(article,1);
+  }
+  public removeArticleFromCart(article: Article){
+    this.shoppingCartService.addItem(article,-1);
+  }
+
+  public articleInCart(article: Article): boolean {
+    return Observable.create((obs: Observer<boolean>) => {
+      const sub = this.shoppingCartService
+                      .get()
+                      .subscribe((cart) => {
+                        obs.next(cart.items.some((i) => i.ArticleId === article.ArticleId));
+                        obs.complete();
+                      });
+      sub.unsubscribe();
+    });
+  }
+
 }
