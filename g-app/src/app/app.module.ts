@@ -16,11 +16,13 @@ import { TopPaidArticlesComponent } from 'src/app/articles/top-paid-articles/top
 import { ViewArticleService } from 'src/app/articles/view-article/view-article.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LocalStorageServie, StorageService } from 'src/app/shared/Storage.service';
+import { CheckoutComponent } from './checkout/checkout.component';
  
 const appRoutes = [
   { path: "", component: HomeComponent },
   { path: "Top-Paid", component: TopPaidArticlesComponent },
-  { path: "Article/:ArticleId", component: ViewArticleComponent }
+  { path: "Article/:ArticleId", component: ViewArticleComponent },
+  { path: "checkout",component: CheckoutComponent}
 ];
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ const appRoutes = [
     GetArticlesComponent,
     TopPaidArticlesComponent,
     ViewArticleComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CheckoutComponent
 ],
   imports: [
     BrowserModule,

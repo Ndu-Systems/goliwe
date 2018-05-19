@@ -22,7 +22,7 @@ export class ShoppingCartService {
       private articleService : GetArticlesService
     ) { 
       this.storage = this.storageService.get();
-      this.articleService.getAllArticles().subscribe((articles)=> this.articles = articles);
+      this.articleService.getAllArticles().subscribe((articles)=> this.articles = articles.data);
       this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>)=> {
         this.subscribers.push(observer);
         observer.next(this.retrieve());
@@ -59,8 +59,8 @@ export class ShoppingCartService {
     private calculateCart(cart : ShoppingCart): void {
       
       cart.itemsTotal = cart.items
-            // .map((item) => item.quantity * this.articles.find((p) => p.ArticleId === item.ArticleId).Price)
-            .map((item)=> item.quantity * 40)
+            .map((item) => item.quantity * this.articles.find((p) => p.ArticleId === item.ArticleId).Price)
+            // .map((item)=> item.quantity * 40)
             .reduce((previous, current) => previous + current, 0);    
       
       cart.Total = cart.itemsTotal;

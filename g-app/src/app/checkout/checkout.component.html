@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <app-home-nav></app-home-nav>
+  <div class="product-easy">
+      <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h2><i class="fa fa-credit-card"></i> Check Out</h2>
+        </div>
+        <div class="col-md-4">           
+          <h2 class="currency"> Order Total: {{(cart | async).Total | currency:'USD':true}}</h2>      
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn-primary btn-lg">Purchase Order</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ISSN #</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Abstract</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-active" *ngFor="let item of cartItems">
+                      <td>{{item.article.ISSN}}</td>
+                      <td>{{item.article.Title}}</td>
+                      <td>{{item.article.Abstract}}</td>
+                      <td>{{item.quantity}}</td>
+                      <td>{{item.totalCost | currency:'USD':true}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
