@@ -1,0 +1,29 @@
+ 
+<h3>Sign up for free</h3>
+<form>
+    <div class="sign-up">
+        <h4>Email :</h4>
+        <input type="email" value="Type here" [(ngModel)]="Email"  [ngModelOptions]="{standalone: true}"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Email';}" required="">
+    </div>
+    <div class="sign-up">
+        <h4>Password :</h4>
+        <input type="password" value="Password" [(ngModel)]="Password"  [ngModelOptions]="{standalone: true}"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Password';}" required="">
+    </div>
+    <div class="sign-up">
+        <h4>Re-type Password :</h4>
+        <input type="password" value="Password" [(ngModel)]="ConfirmPassword"  [ngModelOptions]="{standalone: true}"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="">
+    </div>
+    <hr />
+    <div class="sign-up">
+        <h4>First Name(s) :</h4>
+        <input type="text" value="Type here" [(ngModel)]="FirstName"  [ngModelOptions]="{standalone: true}"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter First Name';}" required="">
+    </div>
+    <div class="sign-up">
+        <h4>Surname :</h4>
+        <input type="text" value="Type here" [(ngModel)]="Surname"  [ngModelOptions]="{standalone: true}"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Surname';}" required="">
+    </div>
+    <div class="sign-up">
+        <input type="submit" value="SIGN UP NOW" (click)="SignUp()">
+    </div>
+    <h4 class="errormessage">{{message}}</h4>
+</form>

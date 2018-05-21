@@ -25,7 +25,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { UserLoginComponent } from 'src/app/account/user-login/user-login.component';
 import { UserDashboardComponent } from 'src/app/dash-board/user-dashboard/user-dashboard.component';
 import { UserNavComponent } from 'src/app/dash-board/user-nav/user-nav.component';
- 
+import { UserRegistrationService } from 'src/app/account/user-registration/user-registration.service';
+import { UserRegistrationComponent } from 'src/app/account/user-registration/user-registration.component';
+  
 const appRoutes = [
   { path: "", component: HomeComponent },
   { path: "Top-Paid", component: TopPaidArticlesComponent },
@@ -51,7 +53,8 @@ const appRoutes = [
     UserNavComponent, 
     AdminDashboardComponent,
     AdminNavComponent,
-    UserLogoutComponent
+    UserLogoutComponent ,
+    UserRegistrationComponent
 ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ const appRoutes = [
       useClass: ShoppingCartService
     },
     UserDataService,
-    UserLoginService
+    UserLoginService,
+    UserRegistrationService
   ],
   bootstrap: [AppComponent]
 })

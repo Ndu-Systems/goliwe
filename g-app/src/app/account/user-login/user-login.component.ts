@@ -1,3 +1,4 @@
+import { User } from './../../models/User';
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from 'src/app/account/user-login/user-login.service';
 import { UserDataService } from 'src/app/shared/user-data.service';
@@ -12,6 +13,7 @@ export class UserLoginComponent implements OnInit {
   lEmail : any;
   lPassword: any;
   message: any;
+  
   constructor(
     private loginService: UserLoginService,
     private userDataService: UserDataService,
@@ -42,4 +44,6 @@ export class UserLoginComponent implements OnInit {
       }
     });
   }
+
+ 
 }

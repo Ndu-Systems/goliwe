@@ -4,6 +4,7 @@ export class User {
 	public Surname: String;
 	public Email: String;
 	public Password: String;
+	public ConfirmPassword: String;
 	public Role: String;
 	public Status: String;
 	public BankName: String;
