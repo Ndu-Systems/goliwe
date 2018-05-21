@@ -1,3 +1,4 @@
+import { UserDataService } from 'src/app/shared/user-data.service';
 import { GetArticlesService } from './../get-articles/get-articles.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,12 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-paid-articles.component.css']
 })
 export class TopPaidArticlesComponent implements OnInit {
-
+  user:any
   articles = []
   message: any
   constructor(
     private GetArticlesService: GetArticlesService,
-    private router: Router
+    private router: Router,
+    private userDataService:UserDataService
   ) { }  
 
   ngOnInit() {
@@ -25,6 +27,9 @@ export class TopPaidArticlesComponent implements OnInit {
           this.message = response;
         }
       });
+
+      this.userDataService.getUser();
+      
   }
 
   SelectedArticle(item){

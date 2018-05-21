@@ -1,3 +1,4 @@
+import { UserDataService } from 'src/app/shared/user-data.service';
 import { NavBar } from './../../models/NavBar';
 import { Component, OnInit,Input } from '@angular/core';
  
@@ -8,9 +9,14 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class UserNavComponent implements OnInit {
  @Input() Navbar : NavBar;
-  constructor() { }
+ user: any
+  username:any
+  constructor(
+    private userDataService: UserDataService
+  ) { }
 
   ngOnInit() {
-  }
-
+    this.user = this.userDataService.getUser();
+    this.username = this.user.Email;
+   }
 }

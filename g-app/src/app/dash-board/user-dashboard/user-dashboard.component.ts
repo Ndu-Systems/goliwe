@@ -11,11 +11,15 @@ import { NavBar } from 'src/app/models/NavBar';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
   
-  constructor() { }
+  user: any
+  username:any
+  constructor(
+    private userDataService: UserDataService
+  ) { }
 
   ngOnInit() {
-  }  
-
+    this.user = this.userDataService.getUser();
+    this.username = this.user.Email;
+   }
 }

@@ -12,7 +12,7 @@ export class UserLogoutComponent implements OnInit {
   constructor(private userDataService: UserDataService, private router:Router) { }
 
   ngOnInit() {
-    this.userDataService.emptyUser();
+    this.userDataService.saveUser(null);
     this.router.navigate(['Login']);
   }
 

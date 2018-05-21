@@ -41,15 +41,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
                             ...item,
                             article,
                             totalCost: article.Price * item.quantity 
-                          };
-                        });
+               };
+            });
       });
     });
   }
 
   public ngOnDestroy(): void {
     if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
+        this.cartSubscription.unsubscribe();
     }
   }
 }

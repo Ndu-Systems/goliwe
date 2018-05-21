@@ -2,6 +2,7 @@ import { UserDataService } from './../../shared/user-data.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from 'src/app/account/user-registration/user-registration.service';
+import { ResetUserService } from 'src/app/shared/reset-user.service';
 
 @Component({
   selector: 'app-user-registration',
@@ -17,7 +18,11 @@ FirstName: any;
 Surname: any;
 isValid: boolean;
 message: any;
-  constructor(private userRegistrationService: UserRegistrationService, private router: Router, private userDataService: UserDataService) { }
+
+  constructor(private userRegistrationService: UserRegistrationService, 
+    private router: Router, 
+    private userDataService: UserDataService,
+    private resetUserService: ResetUserService) { }
 
   ngOnInit() {
   }
@@ -46,11 +51,16 @@ message: any;
     };
     debugger
     this.userRegistrationService.registerUser(data).subscribe(response =>{
-      if(response===1){
-        alert("user saved!");
+      debugger
+      if(response>0){
+        // alert("user saved!");
+        this.resetUserService.resetUser(data.Email,data.Password).subscribe((res)=>{
+            this.userDataService.saveUser(res.data[0]);
+            this.router.navigate(['User-Dashboard']);
+        })     
       }
       else{
-        this.message = response;
+        this.message =response;
       }
     })
     

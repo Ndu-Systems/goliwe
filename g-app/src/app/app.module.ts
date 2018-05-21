@@ -1,3 +1,4 @@
+import { ResetUserService } from './shared/reset-user.service';
 import { UserLogoutComponent } from './account/user-logout/user-logout.component';
 import { AdminNavComponent } from './dash-board/admin-nav/admin-nav.component';
 import { AdminDashboardComponent } from './dash-board/admin-dashboard/admin-dashboard.component';
@@ -27,6 +28,7 @@ import { UserDashboardComponent } from 'src/app/dash-board/user-dashboard/user-d
 import { UserNavComponent } from 'src/app/dash-board/user-nav/user-nav.component';
 import { UserRegistrationService } from 'src/app/account/user-registration/user-registration.service';
 import { UserRegistrationComponent } from 'src/app/account/user-registration/user-registration.component';
+import { PayFastComponent } from './pay-fast/pay-fast.component';
   
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -54,7 +56,9 @@ const appRoutes = [
     AdminDashboardComponent,
     AdminNavComponent,
     UserLogoutComponent ,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    PayFastComponent,
+    PayFastComponent
 ],
   imports: [
     BrowserModule,
@@ -74,7 +78,8 @@ const appRoutes = [
     },
     UserDataService,
     UserLoginService,
-    UserRegistrationService
+    UserRegistrationService,
+    ResetUserService
   ],
   bootstrap: [AppComponent]
 })

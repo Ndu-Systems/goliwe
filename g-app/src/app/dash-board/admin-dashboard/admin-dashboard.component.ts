@@ -1,3 +1,4 @@
+import { UserDataService } from 'src/app/shared/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-
-  constructor() { }
+  user: any
+  username:any
+  constructor(
+    private userDataService: UserDataService
+  ) { }
 
   ngOnInit() {
-  }
+    this.user = this.userDataService.getUser();
+   }
 
 }

@@ -10,7 +10,12 @@
           <h2 class="currency"> Order Total: {{(cart | async).Total | currency:'USD':true}}</h2>      
         </div>
         <div class="col-md-4">
-          <button type="button" class="btn btn-primary btn-lg">Purchase Order</button>
+          <button type="button" class="btn btn-primary btn-lg"><li class="fa fa-signal"></li> Make EFT</button>
+          <br/>
+          <div class="content-centered"><h2>Or</h2></div>
+          <br/>
+          <!-- Pay Fast Intergration -->
+          <app-pay-fast></app-pay-fast>
         </div>
       </div>
       <div class="row">

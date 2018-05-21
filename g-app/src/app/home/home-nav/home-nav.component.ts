@@ -1,3 +1,4 @@
+import { UserDataService } from 'src/app/shared/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeNavComponent implements OnInit {
 
-  constructor() { }
-  collapsed = true;
-     toggleCollapsed(): void {
-       this.collapsed = !this.collapsed;
-     }
+  user: any;
+  constructor(private userDataService : UserDataService) { }
   ngOnInit() {
+    debugger
+    this.user = this.userDataService.getUser();
   }
 
 }

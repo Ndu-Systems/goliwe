@@ -30,13 +30,15 @@
     </div>
     <div class="col-md-3 header-right footer-bottom">
         <ul>
-        <a href="Login" class="loginRef">
+        <a href="Login" class="loginRef" *ngIf="(!user)">
             <li>
-                <a href="Login"><i class="fa fa-user" style="font-size:30px; color:#fda30e;"></i></a>
-
+                <a  href="Login"><i class="fa fa-user" style="font-size:30px; color:#fda30e;"></i></a>
             </li>
             <li>Login to your account</li>   
-        </a>      
+        </a>
+        <li *ngIf="(user) as currentUser">
+
+        </li>      
         </ul>
     </div>
   <div class="clearfix"></div>
