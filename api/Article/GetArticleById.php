@@ -3,6 +3,8 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require "../conn.php";
+require "../Models/Article.php";
+
 // $data = json_decode(file_get_contents("php://input"));
 
 $id = $_GET['id'];
@@ -30,18 +32,7 @@ while($row=$result->fetch(PDO::FETCH_OBJ)) {
 	}
 }
 echo json_encode($rows);
-class Article{
-    public $ArticleId;
-    public $ISSN;
-    public $Price;
-    public $Title;
-    public $PublisherID;
-    public $PlublishDate;
-    public $Abstract;
-    public $FileUrl;
-	public $Status;
-	public $ImageUrl;
-}
+
 ?>
 
  
