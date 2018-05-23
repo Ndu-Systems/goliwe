@@ -1,3 +1,4 @@
+import { UserDataService } from './../../shared/user-data.service';
 import { GetArticlesService } from './../get-articles/get-articles.service';
  
 import { Observable } from 'rxjs/Observable';
@@ -18,18 +19,23 @@ export class ViewArticleComponent implements OnInit {
   article: any;
   message :any; 
   public articles : Observable<Article[]>;
-
+  user: any;
+  name: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private articleService: ViewArticleService,
     private getAritclesService: GetArticlesService,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
+    private userDataService: UserDataService
   ) { }
 
   ngOnInit() {
     this.ArticleId = parseInt(this.route.snapshot.paramMap.get("ArticleId"));
     this.viewArticle(this.ArticleId);
+    this.user = this.userDataService.getUser();
+    debugger
+    this.name = this.user.Email;
   }
   viewArticle(ArticleId) {
     this.articleService.viewArticle(ArticleId).subscribe(response =>{

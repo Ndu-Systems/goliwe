@@ -29,6 +29,7 @@ import { UserNavComponent } from 'src/app/dash-board/user-nav/user-nav.component
 import { UserRegistrationService } from 'src/app/account/user-registration/user-registration.service';
 import { UserRegistrationComponent } from 'src/app/account/user-registration/user-registration.component';
 import { PayFastComponent } from './pay-fast/pay-fast.component';
+import { UnAuthorizedComponent } from './un-authorized/un-authorized.component';
   
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -38,7 +39,9 @@ const appRoutes = [
   { path: "Login", component: UserLoginComponent}, 
   { path: "User-Dashboard", component: UserDashboardComponent}, 
   { path: "Admin-Dashboard", component: AdminDashboardComponent},
-  { path: "Logout", component: UserLogoutComponent}
+  { path: "Logout", component: UserLogoutComponent},
+  { path: "Un-Authorized", component: UnAuthorizedComponent},
+  { path: "**", component: HomeComponent }
 ];
 @NgModule({
   declarations: [
@@ -58,13 +61,14 @@ const appRoutes = [
     UserLogoutComponent ,
     UserRegistrationComponent,
     PayFastComponent,
-    PayFastComponent
+    PayFastComponent,
+    UnAuthorizedComponent
 ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes) ,
+    RouterModule.forRoot(appRoutes,{useHash:true}) 
   ],
   providers: [
     GetArticlesService,
@@ -80,6 +84,7 @@ const appRoutes = [
     UserLoginService,
     UserRegistrationService,
     ResetUserService
+ 
   ],
   bootstrap: [AppComponent]
 })

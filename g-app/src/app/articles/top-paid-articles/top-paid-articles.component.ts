@@ -12,6 +12,7 @@ export class TopPaidArticlesComponent implements OnInit {
   user:any
   articles = []
   message: any
+  name : any
   constructor(
     private GetArticlesService: GetArticlesService,
     private router: Router,
@@ -27,8 +28,10 @@ export class TopPaidArticlesComponent implements OnInit {
           this.message = response;
         }
       });
-
-      this.userDataService.getUser();
+    
+     this.user = this.userDataService.getUser();
+     debugger
+     this.name = this.user.Email;
       
   }
 

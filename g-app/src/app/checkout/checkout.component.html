@@ -1,5 +1,10 @@
 <div class="container-fluid">
-  <app-home-nav></app-home-nav>
+    <div *ngIf="(!user);else other_content">
+        <app-home-nav></app-home-nav>
+    </div>
+    <ng-template #other_content>
+        <app-user-nav></app-user-nav>
+    </ng-template> 
   <div class="product-easy">
       <div class="container">
       <div class="row">
@@ -9,14 +14,7 @@
         <div class="col-md-4">           
           <h2 class="currency"> Order Total: {{(cart | async).Total | currency:'USD':true}}</h2>      
         </div>
-        <div class="col-md-4">
-          <button type="button" class="btn btn-primary btn-lg"><li class="fa fa-signal"></li> Make EFT</button>
-          <br/>
-          <div class="content-centered"><h2>Or</h2></div>
-          <br/>
-          <!-- Pay Fast Intergration -->
-          <app-pay-fast></app-pay-fast>
-        </div>
+  
       </div>
       <div class="row">
         <div class="col-md-8">
@@ -41,6 +39,19 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-md-4">          
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h3>Method Of Payment  <li class="fa fa-money"></li></h3></div>
+                <div class="card-body">
+                    <!-- <button type="button" class="btn btn-primary btn-lg"><li class="fa fa-signal"></li> Make EFT</button> -->
+                    <br/>
+                    <div class="content-centered"><h2>Or</h2></div>
+                    <br/>
+                    <!-- Pay Fast Intergration -->
+                    <app-pay-fast></app-pay-fast>                
+                </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>

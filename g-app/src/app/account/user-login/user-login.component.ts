@@ -26,7 +26,7 @@ export class UserLoginComponent implements OnInit {
   SignIn(){
     this.loginService.loginUser(this.lEmail, this.lPassword)
     .subscribe((response)=>{
-      if(response.data[0].Email){     
+      if(response){     
         let user = response.data[0];
         this.userDataService.saveUser(user);
         if(user.Role === "Admin"){
