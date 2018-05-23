@@ -24,12 +24,12 @@ $data = json_decode(file_get_contents("php://input"));
       }
       else
       {
-        echo "Incorrect Email / Password Provided";
+        echo json_encode("Incorrect Email / Password Provided");
       }
   }
   else
   {
-	echo "Invalid Email Address";
+	echo json_encode("Invalid Email Address");
   }
 
 ?>

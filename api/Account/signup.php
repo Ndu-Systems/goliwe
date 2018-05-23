@@ -27,12 +27,12 @@ if(isset($data->Email)){
 			}
 			else
 			{
-				echo "Error occurred contact system administrator";
+				echo json_encode("Error occurred contact system administrator");
 			}
 		}
 		else
 		{
-			echo "Please Note That You Already Part Of The Family Please Sign In";			
+			echo json_encode("Please Note That You Already Part Of The Family Please Sign In");			
 		}
 }
 else{
