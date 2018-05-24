@@ -1,3 +1,4 @@
+import { UploadService } from 'src/app/shared/upload.service';
 import { ResetUserService } from './shared/reset-user.service';
 import { UserLogoutComponent } from './account/user-logout/user-logout.component';
 import { AdminNavComponent } from './dash-board/admin-nav/admin-nav.component';
@@ -30,6 +31,8 @@ import { UserRegistrationService } from 'src/app/account/user-registration/user-
 import { UserRegistrationComponent } from 'src/app/account/user-registration/user-registration.component';
 import { PayFastComponent } from './pay-fast/pay-fast.component';
 import { UnAuthorizedComponent } from './un-authorized/un-authorized.component';
+import { CreateArticleComponent } from 'src/app/articles/create-article/create-article.component';
+import { CreateArticleService } from 'src/app/articles/create-article/create-article.service';
   
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -41,6 +44,7 @@ const appRoutes = [
   { path: "Admin-Dashboard", component: AdminDashboardComponent},
   { path: "Logout", component: UserLogoutComponent},
   { path: "Un-Authorized", component: UnAuthorizedComponent},
+  { path: "Add-Article", component: CreateArticleComponent},
   { path: "**", component: HomeComponent }
 ];
 @NgModule({
@@ -62,7 +66,8 @@ const appRoutes = [
     UserRegistrationComponent,
     PayFastComponent,
     PayFastComponent,
-    UnAuthorizedComponent
+    UnAuthorizedComponent,
+    CreateArticleComponent
 ],
   imports: [
     BrowserModule,
@@ -83,7 +88,9 @@ const appRoutes = [
     UserDataService,
     UserLoginService,
     UserRegistrationService,
-    ResetUserService
+    ResetUserService,
+    CreateArticleService,
+    UploadService
  
   ],
   bootstrap: [AppComponent]
