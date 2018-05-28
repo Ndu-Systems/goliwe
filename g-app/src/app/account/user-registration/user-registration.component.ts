@@ -49,9 +49,9 @@ message: any;
       Surname: this.Surname,
       Password: this.Password
     };
-    debugger
+    
     this.userRegistrationService.registerUser(data).subscribe(response =>{
-      debugger
+      
       if(response>0){
         // alert("user saved!");
         this.resetUserService.resetUser(data.Email,data.Password).subscribe((res)=>{

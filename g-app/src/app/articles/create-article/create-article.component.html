@@ -9,40 +9,42 @@
   <div class="container">     
     <div class="sap_tabs">
  
-        <form class="col-md-6 offset-3">
+        <div class="col-md-6 offset-3">
           <fieldset>
             <legend>Create Article</legend> 
             <hr/>         
             <div class="form-group">
               <label for="exampleInputEmail1">Title</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title Here">
+              <input type="text" class="form-control" id="exampleInputEmail1"  [(ngModel)]="Title" aria-describedby="emailHelp" placeholder="Enter Title Here">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">ISSN</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ISSN Number">
+              <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="ISSN" aria-describedby="emailHelp" placeholder="Enter ISSN Number">
             </div>         
             <div class="form-group">
               <label for="exampleInputEmail1">Price</label>
-              <input type="text" class="form-control" [(ngModel)]="Price" value="{{Price}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+              <input type="text" class="form-control"  [(ngModel)]="Price" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
             </div>       
              <div class="form-group">
               <label for="exampleTextarea">Abstract</label>
-              <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              <textarea class="form-control" [(ngModel)]="Abstract" id="exampleTextarea" rows="3"></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Upload Cover</label>
-              <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+              <input type="file" class="form-control-file" id="exampleInputFile"  (change)="filesChangedCover($event.target.files)">
               <small id="fileHelp" class="form-text text-muted"></small>
             </div>  
             <div class="form-group">
               <label for="exampleInputFile">Upload Article File (PDF)</label>
-              <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+              <input type="file" class="form-control-file" id="exampleInputFile"  (change)="filesChangedFile($event.target.files)">
               <small id="fileHelp" class="form-text text-muted"></small>
             </div>       
              
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button  (click)="uplaodFiles()" class="btn btn-primary">Submit</button>
+
           </fieldset>
-        </form>
+        </div>
+    
       
   </div>
   </div>

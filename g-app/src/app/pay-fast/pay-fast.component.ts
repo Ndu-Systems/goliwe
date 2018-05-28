@@ -46,7 +46,7 @@ export class PayFastComponent implements OnInit {
       this.lastName = this.user.Surname;      
     } 
     this.cart = this.shoppingCartService.get();
-   debugger
+   
     this.cartSubscription = this.cart.subscribe((cart)=>{  
       this.itemCount = cart.items.map((x)=> x.quantity).reduce((p, n) => p + n, 0);
       this.getAllArticlesService.getAllArticles().subscribe((articles)=>{
@@ -61,7 +61,7 @@ export class PayFastComponent implements OnInit {
                             totalCost: article.Price * item.quantity 
                };
             });
-            debugger  
+              
             this.amount = (cart.Total * 12.45);
       }); 
     

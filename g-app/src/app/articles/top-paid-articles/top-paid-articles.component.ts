@@ -30,7 +30,7 @@ export class TopPaidArticlesComponent implements OnInit {
       });
     
      this.user = this.userDataService.getUser();
-     debugger
+     
      this.name = this.user.Email;
       
   }

@@ -11,7 +11,7 @@ export class HomeNavComponent implements OnInit {
   user: any;
   constructor(private userDataService : UserDataService) { }
   ngOnInit() {
-    debugger
+    
     this.user = this.userDataService.getUser();
   }
 

@@ -5,5 +5,5 @@ export const EMAIL= "https://www.funderslife.com/api/emailClient2.php";
 
 
 export function GetImagePath(imageUrl){
-return `${API_URL}/Invest/${imageUrl}`;
+return `${API_URL}/Article/${imageUrl}`;
 }

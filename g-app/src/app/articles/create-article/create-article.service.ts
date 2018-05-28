@@ -13,11 +13,13 @@ export class CreateArticleService {
     return this.httpClient.post(`${this.API_PATH}/Article/AddArticle.php`,model);
   }
 
-  uploadArticleDocument(file:File): Observable<any>{
-    let formData = new FormData();
+ 
+  uploadFile(file:File):Observable<any>{
+    let formData  = new FormData();
     formData.append('file', file);
-    formData.append('name', file.name);
-    return this.httpClient.post<any>(`${this.API_PATH}/Article/upload.php`,formData);
-  }
-  
+    formData.append('name', file.name)
+     return this.httpClient.post<any>(`${this.API_PATH}/Article/upload.php`,
+      formData
+    );
+}
 }

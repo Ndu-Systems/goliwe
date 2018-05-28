@@ -34,7 +34,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user = this.userDataService.getUser();
-    debugger
+    
     if(!this.user){
       //this.router.navigate(['Un-Authorized']);
     }    
