@@ -34,8 +34,10 @@ export class ViewArticleComponent implements OnInit {
     this.ArticleId = parseInt(this.route.snapshot.paramMap.get("ArticleId"));
     this.viewArticle(this.ArticleId);
     this.user = this.userDataService.getUser();
+    if(this.user){
+      this.name = this.user.Email;
+    }
     
-    this.name = this.user.Email;
   }
   viewArticle(ArticleId) {
     this.articleService.viewArticle(ArticleId).subscribe(response =>{

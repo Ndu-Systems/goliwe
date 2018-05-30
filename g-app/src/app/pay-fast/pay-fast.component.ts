@@ -38,7 +38,7 @@ export class PayFastComponent implements OnInit {
   ngOnInit() {
     this.user = this.userDataService.getUser();
     if(!this.user){
-      this.router.navigate(['Un-Authorized']);
+      //this.router.navigate(['Un-Authorized']);
     }
     else{
       this.emailAddress = this.user.Email;

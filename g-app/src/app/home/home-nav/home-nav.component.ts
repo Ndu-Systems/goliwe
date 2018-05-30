@@ -10,9 +10,11 @@ export class HomeNavComponent implements OnInit {
 
   user: any;
   constructor(private userDataService : UserDataService) { }
-  ngOnInit() {
-    
+  ngOnInit() {    
     this.user = this.userDataService.getUser();
+    if(this.user){
+      
+    }
   }
 
 }

@@ -30,8 +30,9 @@ export class TopPaidArticlesComponent implements OnInit {
       });
     
      this.user = this.userDataService.getUser();
-     
-     this.name = this.user.Email;
+     if(this.user){    
+        this.name = this.user.Email;
+    }
       
   }
 

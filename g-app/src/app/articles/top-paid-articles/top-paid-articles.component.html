@@ -8,13 +8,13 @@
   <div class="product-easy">
     <div class="container">     
       <div class="sap_tabs" *ngIf="(articles) as listOfArticles">
-        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+        <div id="horizontalTab">
             <ul class="resp-tabs-list">                     
                 <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Top Paid</span></li>                  
             </ul>
             <div class="row">               
                 <div class="col-md-3 product-men resp-tab-content resp-tab-content-active" *ngFor="let item of listOfArticles" aria-labelledby="tab_item-0" style="display:block"  >
-                    <div class="" >
+                    <div class="" style="width: 100%">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
                                 <img src="{{item.ImageUrl}}" alt="" class="pro-image-front">

@@ -33,6 +33,8 @@ import { PayFastComponent } from './pay-fast/pay-fast.component';
 import { UnAuthorizedComponent } from './un-authorized/un-authorized.component';
 import { CreateArticleComponent } from 'src/app/articles/create-article/create-article.component';
 import { CreateArticleService } from 'src/app/articles/create-article/create-article.service';
+import { EmailService } from './shared/email.service';
+import { DirectDepositComponent } from './direct-deposit/direct-deposit.component';
   
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -45,6 +47,7 @@ const appRoutes = [
   { path: "Logout", component: UserLogoutComponent},
   { path: "Un-Authorized", component: UnAuthorizedComponent},
   { path: "Add-Article", component: CreateArticleComponent},
+  { path: "Direct-Deposit-Success", component:DirectDepositComponent},
   { path: "**", component: HomeComponent }
 ];
 @NgModule({
@@ -68,6 +71,8 @@ const appRoutes = [
     PayFastComponent,
     UnAuthorizedComponent,
     CreateArticleComponent
+,
+    DirectDepositComponent
 ],
   imports: [
     BrowserModule,
@@ -90,7 +95,8 @@ const appRoutes = [
     UserRegistrationService,
     ResetUserService,
     CreateArticleService,
-    UploadService
+    UploadService,
+    EmailService
  
   ],
   bootstrap: [AppComponent]
