@@ -8,6 +8,7 @@ import { ShoppingCart } from './../models/shopping-cart';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { UserDataService } from 'src/app/shared/user-data.service';
+import { GoogleCurrencyService } from '../shared/google-currency.service';
 
 @Component({
   selector: 'app-pay-fast',
@@ -27,15 +28,18 @@ export class PayFastComponent implements OnInit {
   firstName: any
   lastName:any
   emailAddress:any
-
+  rate : number 
+   
   constructor(
     private userDataService: UserDataService,
     private getAllArticlesService: GetArticlesService, 
     private shoppingCartService: ShoppingCartService,
-    private router:Router
+    private router:Router,
+    private currencyService: GoogleCurrencyService
   ) { }
 
   ngOnInit() {
+
     this.user = this.userDataService.getUser();
     if(!this.user){
       //this.router.navigate(['Un-Authorized']);
@@ -45,6 +49,18 @@ export class PayFastComponent implements OnInit {
       this.firstName = this.user.FirstName;
       this.lastName = this.user.Surname;      
     } 
+
+    //Get Currency As At Date
+    this.currencyService.GetCurrency().subscribe(response => {
+      debugger
+      if(response){  
+         this.rate =   Number(JSON.stringify(response["quotes"]["USDZAR"]));   
+      }
+      else{
+        alert("Try Again")
+      }      
+    })
+    //Get Shopping Cart 
     this.cart = this.shoppingCartService.get();
    
     this.cartSubscription = this.cart.subscribe((cart)=>{  
@@ -61,8 +77,8 @@ export class PayFastComponent implements OnInit {
                             totalCost: article.Price * item.quantity 
                };
             });
-              
-            this.amount = (cart.Total * 12.45);
+              debugger
+            this.amount = (cart.Total * this.rate);
       }); 
     
     }); 
@@ -78,6 +94,5 @@ export class PayFastComponent implements OnInit {
       }   
     }    
     return this.total;
-  }
-
+  }  
 }

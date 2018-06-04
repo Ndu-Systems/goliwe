@@ -35,6 +35,7 @@ import { CreateArticleComponent } from 'src/app/articles/create-article/create-a
 import { CreateArticleService } from 'src/app/articles/create-article/create-article.service';
 import { EmailService } from './shared/email.service';
 import { DirectDepositComponent } from './direct-deposit/direct-deposit.component';
+import { GoogleCurrencyService } from './shared/google-currency.service';
   
 const appRoutes = [
   { path: "", component: HomeComponent },
@@ -96,7 +97,8 @@ const appRoutes = [
     ResetUserService,
     CreateArticleService,
     UploadService,
-    EmailService
+    EmailService,
+    GoogleCurrencyService
  
   ],
   bootstrap: [AppComponent]
